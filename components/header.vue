@@ -3,7 +3,7 @@
     <div class="inner-wrap">
       <div class="top">
         <div class="lf logo"></div>
-        <div class="rt" @click="openSite()">
+        <div class="rt" @click.stop="openSite()">
           <div class="address"></div>
           <div class="sitename">主站</div>
           <div class="arrow"></div>
@@ -34,8 +34,7 @@
 
         <!-- </div> -->
       </div>
-    </div>
-    <div class="site-map" v-show="isshowMap">
+          <div class="site-map" v-show="isshowMap">
       <div class="site-map-provice">
         <ul>
           <li>主站</li>
@@ -55,6 +54,8 @@
         </ul>
       </div>
     </div>
+    </div>
+
   </header>
 </template>
 <script>
@@ -106,17 +107,20 @@ export default {
   mounted() {
     this.initData();
     
+   
   }
 };
 //sitemapTree
 </script>
 <style scoped lang="scss">
 header {
+
   height: 140px;
   background: #fff;
   box-shadow: 0px 2px 5px rgba(0, 124, 216, 0.1);
 }
 .inner-wrap {
+    position: relative;
   height: 100%;
   display: flex;
   flex-direction: column;
